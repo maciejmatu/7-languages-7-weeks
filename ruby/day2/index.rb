@@ -52,3 +52,63 @@ def call_block(&block)
 end
 
 call_block { puts 'Hello from block' }
+
+# Classes In Ruby
+# A class can inherit from only one parent called a `superclass`
+4.class # => Fixnum
+4.class.superclass # => Integer
+4.class.superclass.superclass # => Numeric
+4.class.superclass.superclass.superclass # => Object
+4.class.superclass.superclass.superclass.superclass # => nill
+
+# Mixins in ruby
+# ruby implements mixins by using a `module`. The naming differs between
+# languages, e.g. Java uses interfaces for that
+module ToFile 
+  def filename
+    "object_#{self.object_id}.txt"
+  end
+
+  def to_f
+    File.open(File.dirname(__FILE__) << '/' << filename, 'w') do |f|
+      f.write(to_s) # module uses a class method that has not been defined yet
+    end
+  end
+end
+
+class Person
+  include ToFile
+  attr_accessor :name
+
+  def initialize(name)
+    @name = name
+  end
+
+  def to_s
+    name
+  end
+end
+
+Person.new('maciej').to_f
+
+# <=> is called a spaceship operator 
+a = 1
+b = 3
+a <=> b # returns -1 if b is greater, 1 if a is greater and 0 therwise
+1 <=> 2 # returns -1
+3 <=> 2 # returns 1
+2 <=> 2 # returns 0
+
+# Ruby enumerable and comparable mixins
+arr = [5, 3, 4, 1]
+a.sort # => [1, 3, 4, 5]
+a.any? { |i| > 6 } # false -- no number is higher than index
+a.all? { |i| > 0 } # true -- all numbers are higher than zero
+a.collect { |i| i * 2 } # [10, 6, 8, 2] -- same as map
+a.select { |i| i % 2 == 0 } # [4] -- works like a filter
+a.max # 5
+a.member?(2) # false
+a.inject(0) {|sum, i| sum + i} # 13 -- works like reduce in js
+
+
+# In ruby performance is secondary. Ruby is about the performance of the programmer
