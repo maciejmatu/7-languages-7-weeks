@@ -1,4 +1,4 @@
-# & programming languages in 7 weeks
+# 7 programming languages in 7 weeks
 
 I always forget stuff. This repo is a way to check if doing notes about the book I'm reading helps with remembering things. Also, coding the things I read about is way better than just reading it. It allows me to fiddle with the languages.
 
