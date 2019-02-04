@@ -22,7 +22,18 @@ fib(1) println
 fib(2) println
 fib(4) println
 fib(8) println
+
 recurseFib(1) println
 recurseFib(2) println
 recurseFib(4) println
 recurseFib(8) println
+
+"" println 
+Date secondsToRun(fib(20)) println // 0.000054
+fib(20) println // 6765
+
+"" println
+Date secondsToRun(recurseFib(20)) println // 0.16394
+recurseFib(20) println // 6765
+
+// Hmm either I made a mistake or recursion for fib sequence sucks lol
