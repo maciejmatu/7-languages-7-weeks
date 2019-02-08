@@ -37,3 +37,8 @@ Date secondsToRun(recurseFib(20)) println // 0.16394
 recurseFib(20) println // 6765
 
 // Hmm either I made a mistake or recursion for fib sequence sucks lol
+
+// add up all items from 2d list
+myList := list(1, 2, 3, list(4, 5), list(6, 7), 8)
+
+myList flatten sum println
